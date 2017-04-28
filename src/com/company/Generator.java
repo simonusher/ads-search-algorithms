@@ -16,6 +16,8 @@ public class Generator {
         return tab;
     }
 
+
+
     public static Integer generate(int range){
         return generator.nextInt(range + 1);
     }

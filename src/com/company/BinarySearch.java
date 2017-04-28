@@ -21,12 +21,13 @@ public class BinarySearch {
         Integer toFind;
         for (int i = 0; i < tries ; i++) {
             toFind = Generator.generate(2000);
-            binSearch(array, toFind);
+            binSearch(toFind, array);
         }
-//        avgCmpForCorrect = comparisonsCorrect / correctTries;
-//        avgCmpForMissed = comparisonsMissed / missedTries;
-//        avgComparisons = (comparisonsCorrect + comparisonsMissed) / tries;
+        avgCmpForCorrect = comparisonsCorrect / correctTries;
+        avgCmpForMissed = comparisonsMissed / missedTries;
+        avgComparisons = (comparisonsCorrect + comparisonsMissed) / tries;
 
+        System.out.println("Binary search:");
         System.out.println("Liczba prób: " + tries);
         System.out.println("Liczba wyszukiwań trafionych: " + correctTries +
                 " Srednia liczba porównań: " + avgCmpForCorrect);
@@ -35,21 +36,25 @@ public class BinarySearch {
         System.out.println("Srednia liczba porownan: " + avgComparisons);
     }
 
-    public <T extends Comparable> void binSearch(T arr[], T value) {
+    public <T extends Comparable> void binSearch(T value, T arr[]) {
         int left = 0, right = arr.length - 1;
         int middle;
+        int cmp = 0;
         while (left <= right) {
             middle = (left + right) / 2;
+            cmp++;
             if (arr[middle].compareTo(value) == 0) {
                 correctTries++;
+                comparisonsCorrect += cmp;
                 return;
             }
-            if (arr[middle].compareTo(value) < 0)
+            else if (arr[middle].compareTo(value) > 0)
                 right = middle - 1;
             else
                 left = middle + 1;
         }
         missedTries++;
+        comparisonsMissed += cmp;
     }
 
     private <T extends Comparable> Integer recursiveSearch(int left, int right, T obj, T[]array){

@@ -27,12 +27,14 @@ public class LinearSearch {
         avgCmpForMissed = comparisonsMissed / missedTries;
         avgComparisons = (comparisonsCorrect + comparisonsMissed) / tries;
 
+        System.out.println("Linear search:");
         System.out.println("Liczba prób: " + tries);
         System.out.println("Liczba wyszukiwań trafionych: " + correctTries +
                 " Srednia liczba porównań: " + avgCmpForCorrect);
         System.out.println("Liczba wyszukiwań chybionych: " + missedTries +
                 " Srednia liczba porównań: " + avgCmpForMissed);
         System.out.println("Srednia liczba porownan: " + avgComparisons);
+        System.out.println();
     }
 
     public <T> void search(T obj, T[]array){

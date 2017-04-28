@@ -11,7 +11,7 @@ public class Main {
         l.searchForNTimes(tab);
         ShellSort s = new ShellSort();
         s.sort(tab);
-        System.out.println(Arrays.toString(tab));
+//        System.out.println(Arrays.toString(tab));
         BinarySearch b = new BinarySearch(1000);
         b.searchForNTimes(tab);
     }
